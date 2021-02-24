@@ -8,6 +8,6 @@ module.exports = merge(common, {
     devServer: {
         inline: true, // autorefresh
         contentBase:  path.resolve(__dirname, 'dist'),
-        port:2222
+        port:55555
     },
 });
