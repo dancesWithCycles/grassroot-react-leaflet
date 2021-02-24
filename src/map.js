@@ -22,6 +22,10 @@ import  {MapContainer,TileLayer,LayersControl} from 'react-leaflet';
 // map is BROKEN without zoom attribute
 import 'leaflet/dist/leaflet.css';
 
+// using tile layer from NASA GIBS Blue Marble
+// source for tile layer:
+// https://egghead.io/lessons/react-change-the-map-tile-service-of-a-react-leaflet-tilelayer-basemap-to-nasa-gibs-blue-marble
+
 const Map=()=>
 {
     return(
@@ -40,6 +44,14 @@ const Map=()=>
         attribution="&copy; <a href=http://osm.org/copyright>OpenStreetMap</a> contributors"
 	    />
 	    </LayersControl.BaseLayer>
+
+	    <LayersControl.BaseLayer name="NASA Blue Marble">
+            <TileLayer
+        url="https://gibs-{s}.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default//EPSG3857_500m/{z}/{y}/{x}.jpeg"
+	attribution="&copy; NASA Blue Marble, image service by OpenGeo"
+	maxNativeZoom={8}
+             />
+	</LayersControl.BaseLayer>
 
 	</LayersControl>
 
