@@ -21,8 +21,7 @@
     "react": "*",
     "react-dom": "*",
     "react-leaflet": "*",
-    "webpack": "*",
-    "webpack-dev-server": "*"
+    "webpack": "*"
   },
   "devDependencies": {
     "css-loader": "^5.0.2",
@@ -30,6 +29,7 @@
     "style-loader": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack-cli": "*",
+    "webpack-dev-server": "^3.11.2",
     "webpack-merge": "^5.7.3"
   }
 }
