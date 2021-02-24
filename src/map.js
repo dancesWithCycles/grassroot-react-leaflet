@@ -18,7 +18,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import React from 'react';  
 // map is invisible without the following CSS
 import './map.css';
-import  {MapContainer,TileLayer} from 'react-leaflet';
+import  {MapContainer,TileLayer,LayersControl} from 'react-leaflet';
 // map is BROKEN without zoom attribute
 import 'leaflet/dist/leaflet.css';
 
@@ -32,12 +32,18 @@ const Map=()=>
         // map is invisible without zoom attribute
         zoom={2}>
                 
+	    <LayersControl>
+
+	    <LayersControl.BaseLayer name="OpenStreetMap" checked>
             <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-            />
-        
-        </MapContainer>
+        url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
+        attribution="&copy; <a href=http://osm.org/copyright>OpenStreetMap</a> contributors"
+	    />
+	    </LayersControl.BaseLayer>
+
+	</LayersControl>
+
+	</MapContainer>
         ); 
 }
 export default Map;
