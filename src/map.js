@@ -38,10 +38,45 @@ const Map=()=>
                 
 	    <LayersControl>
 
-	    <LayersControl.BaseLayer name="OpenStreetMap" checked>
+	    <LayersControl.BaseLayer name="OSM Standard" checked>
             <TileLayer
         url="http://{s}.tile.osm.org/{z}/{x}/{y}.png"
         attribution="&copy; <a href=http://osm.org/copyright>OpenStreetMap</a> contributors"
+	    />
+	    </LayersControl.BaseLayer>
+
+	    <LayersControl.BaseLayer name="Transport">
+            <TileLayer
+        url="https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
+        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
+	    />
+	    </LayersControl.BaseLayer>
+
+	    <LayersControl.BaseLayer name="Transport Dark">
+            <TileLayer
+        url="https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
+        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
+	    />
+	    </LayersControl.BaseLayer>
+
+	    <LayersControl.BaseLayer name="Pioneer">
+            <TileLayer
+        url="https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
+        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
+	    />
+	    </LayersControl.BaseLayer>
+
+	    <LayersControl.BaseLayer name="Mobile Atlas">
+            <TileLayer
+        url="https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
+        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
+	    />
+	    </LayersControl.BaseLayer>
+
+	    <LayersControl.BaseLayer name="Atlas">
+            <TileLayer
+        url="https://tile.thunderforest.com/atlas/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
+        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
 	    />
 	    </LayersControl.BaseLayer>
 
