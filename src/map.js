@@ -26,6 +26,41 @@ import 'leaflet/dist/leaflet.css';
 // source for tile layer:
 // https://egghead.io/lessons/react-change-the-map-tile-service-of-a-react-leaflet-tilelayer-basemap-to-nasa-gibs-blue-marble
 
+const THUNDERFORESTS = [
+    {
+	name:'Transport',
+        url:'https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab',
+        attribution:'Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>'
+    },
+    {
+	name:'Transport Dark',
+        url:'https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab',
+        attribution:'Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>',
+    },
+    {
+	name:'Pioneer',
+	url:'https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab',
+        attribution:'Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>',
+    },
+    {
+	name:'Mobile Atlas',
+	url:'https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab',
+	attribution:'Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>',
+    },
+    {
+	name:'Atlas',
+	url:'https://tile.thunderforest.com/atlas/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab',
+	attribution:'Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>'
+    },
+];
+
+const TBaseLayer = ({name, url, attribution, tileParams}) => (
+	<LayersControl.BaseLayer name={name}>
+	<TileLayer
+    url={url} attribution={attribution} {...tileParams} />
+    </LayersControl.BaseLayer>
+);
+
 const Map=()=>
 {
     return(
@@ -45,48 +80,11 @@ const Map=()=>
 	    />
 	    </LayersControl.BaseLayer>
 
-	    <LayersControl.BaseLayer name="Transport">
-            <TileLayer
-        url="https://tile.thunderforest.com/transport/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
-        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
-	    />
-	    </LayersControl.BaseLayer>
-
-	    <LayersControl.BaseLayer name="Transport Dark">
-            <TileLayer
-        url="https://tile.thunderforest.com/transport-dark/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
-        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
-	    />
-	    </LayersControl.BaseLayer>
-
-	    <LayersControl.BaseLayer name="Pioneer">
-            <TileLayer
-        url="https://tile.thunderforest.com/pioneer/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
-        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
-	    />
-	    </LayersControl.BaseLayer>
-
-	    <LayersControl.BaseLayer name="Mobile Atlas">
-            <TileLayer
-        url="https://tile.thunderforest.com/mobile-atlas/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
-        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
-	    />
-	    </LayersControl.BaseLayer>
-
-	    <LayersControl.BaseLayer name="Atlas">
-            <TileLayer
-        url="https://tile.thunderforest.com/atlas/{z}/{x}/{y}.png?apikey=312bb27dc68d4405bfec59ca96d263ab"
-        attribution="Maps &copy; <a href=http://www.thunderforest.com>Thunderforest</a>, Data &copy; <a href=http://www.openstreetmap.org/copyright>OpenStreetMap contributors</a>"
-	    />
-	    </LayersControl.BaseLayer>
-
-	    <LayersControl.BaseLayer name="NASA Blue Marble">
-            <TileLayer
-        url="https://gibs-{s}.earthdata.nasa.gov/wmts/epsg3857/best/BlueMarble_ShadedRelief_Bathymetry/default//EPSG3857_500m/{z}/{y}/{x}.jpeg"
-	attribution="&copy; NASA Blue Marble, image service by OpenGeo"
-	maxNativeZoom={8}
-             />
-	</LayersControl.BaseLayer>
+        {THUNDERFORESTS.map(function(o) {
+	    const {name, url, attribution, ...tileParams}=o;
+	    return <TBaseLayer name={name} url={url} attribution={attribution} tileParams={tileParams}/>;
+        })
+	}
 
 	</LayersControl>
 
