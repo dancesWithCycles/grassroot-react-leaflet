@@ -21,11 +21,14 @@ import './map.css';
 import  {MapContainer,TileLayer} from 'react-leaflet';
 // map is BROKEN without zoom attribute
 import 'leaflet/dist/leaflet.css';
+import TestMapComponent from './testMapComponent';
 
 const Map=()=>
 {
     return(
-        <MapContainer
+	//create Leaflet Map instance and provide it to its child components
+            <MapContainer
+	id="map"
         className="map"
         // map is invisible without center attribute
         center={[0,0]}
@@ -36,7 +39,8 @@ const Map=()=>
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
             />
-        
+
+	<TestMapComponent/>
         </MapContainer>
         ); 
 }
